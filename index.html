@@ -92,7 +92,12 @@
         /* ==========================================================================
            4. TYPOGRAPHY
            ========================================================================== */
-        h1, h2, h3, h4, h5 { color: var(--main-green); margin-bottom: 15px; font-weight: 900; text-shadow: 0 0 15px rgba(0, 255, 136, 0.3); }
+        h1, h2, h3, h4, h5 { 
+            color: var(--main-green);
+            margin-bottom: 15px; 
+            font-weight: 900; 
+            text-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+        }
         .text-center { text-align: center; }
         .text-gray { color: var(--text-gray); }
         .text-white { color: var(--text-light); }
@@ -329,7 +334,8 @@
             transition: all 0.15s ease;
             box-shadow: var(--shadow-3d-grid);
             display: flex;
-            flex-direction: row; /* Icon left, text right */
+            flex-direction: row;
+            /* Icon left, text right */
             align-items: center;
             justify-content: flex-start;
             border: 1px solid rgba(0,255,136,0.05);
@@ -360,7 +366,8 @@
         .grid-item:hover i { transform: scale(1.15); filter: drop-shadow(0 0 10px var(--main-green)); }
 
         .grid-item span {
-            font-size: 15px; /* Bigger font for list view */
+            font-size: 15px;
+            /* Bigger font for list view */
             font-weight: 800;
             color: white;
             text-transform: uppercase;
@@ -413,7 +420,7 @@
         }
         @keyframes rotateGlow { 100% { transform: rotate(360deg); } }
         .level-title { font-size: 12px; color: var(--text-gray); text-transform: uppercase; font-weight: 800; letter-spacing: 2px; position: relative; z-index: 1; }
-        .level-value { font-size: 28px; color: var(--main-green); font-weight: 900; margin: 5px 0; text-shadow: 0 0 15px var(--main-green-glow); position: relative; z-index: 1;}
+        .level-value { font-size: 28px; color: var(--main-green); font-weight: 900; margin: 5px 0; text-shadow: 0 0 15px var(--main-green-glow); position: relative; z-index: 1; }
         .level-subtitle { font-size: 11px; color: #fff; font-weight: 600; position: relative; z-index: 1; background: rgba(0,0,0,0.5); display: inline-block; padding: 4px 10px; border-radius: 20px; margin-top: 5px;}
 
         /* ==========================================================================
@@ -448,7 +455,7 @@
             border: 1px solid rgba(0,255,136,0.05);
         }
         .package-details strong { color: var(--success-green); font-size: 18px; display: block; margin-top: 5px; font-weight: 900; text-shadow: 0 0 8px rgba(0,255,136,0.2); }
-        .buy-btn { width: 100%; border-radius: 50px;}
+        .buy-btn { width: 100%; border-radius: 50px; }
 
         /* --- FLASH PROMO STYLES --- */
         #promoBanner {
@@ -464,7 +471,7 @@
 
         /* ==========================================================================
            10. MODALS, TOASTS & CRYPTO TABS
-           ========================================================================= */
+           ========================================================================== */
         .modal-overlay {
             display: none;
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -501,7 +508,9 @@
             transition: all 0.3s ease;
             box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
         }
-        .crypto-tab:hover { border-color: rgba(0,255,136,0.5); color: white; }
+        .crypto-tab:hover {
+            border-color: rgba(0,255,136,0.5); color: white;
+        }
         .crypto-tab.active {
             background: linear-gradient(145deg, var(--main-green), #00cc6a);
             color: #030a05;
@@ -542,7 +551,7 @@
 
         /* ==========================================================================
            12. CALENDAR CHECK-IN & ENERGY TABLE
-           ========================================================================= */
+           ========================================================================== */
         .calendar-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(32px, 1fr)); gap: 8px; max-height: 280px; overflow-y: auto; margin-bottom: 20px; padding: 15px; background: #040d06; border-radius: var(--border-radius-sm); box-shadow: inset 0 4px 10px rgba(0,0,0,0.8); border: 1px solid rgba(0,255,136,0.1); }
         .day-box { width: 32px; height: 32px; background: linear-gradient(145deg, #102918, #06140a); color: var(--text-gray); display: flex; justify-content: center; align-items: center; font-size: 12px; font-weight: 900; border-radius: 6px; transition: all 0.3s; box-shadow: inset 0 2px 4px rgba(0,0,0,0.8), 0 2px 0 #030a05; border: 1px solid rgba(0,255,136,0.05); }
         .day-box.checked { background: linear-gradient(145deg, var(--main-green), #00cc6a); box-shadow: inset 0 2px 2px rgba(255,255,255,0.4), 0 0 15px var(--main-green-glow); color: #030a05; border: none; transform: scale(1.05); }
@@ -572,17 +581,7 @@
         <div class="text-center">
             <h1 class="logo-title" style="cursor: default;">Invest In Energy</h1>
             
-            <svg viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg" class="hero-image">
-                <rect width="240" height="120" rx="10" fill="#040d06"/>
-                <path d="M40,60 L90,20 L150,20 L200,60 L150,100 L90,100 Z" fill="none" stroke="#00FF88" stroke-width="2" opacity="0.3"/>
-                <path d="M60,60 L100,35 L140,35 L180,60 L140,85 L100,85 Z" fill="#06140a" stroke="#00cc6a" stroke-width="2"/>
-                <circle cx="120" cy="60" r="15" fill="#00FF88" filter="drop-shadow(0 0 10px #00FF88)"/>
-                <circle cx="60" cy="60" r="5" fill="#00cc6a"/>
-                <circle cx="180" cy="60" r="5" fill="#00cc6a"/>
-                <circle cx="100" cy="35" r="4" fill="#a8c2b3"/>
-                <circle cx="140" cy="85" r="4" fill="#a8c2b3"/>
-                <path d="M120,45 L120,20 M120,75 L120,100 M105,60 L90,60 M135,60 L150,60" stroke="#00FF88" stroke-width="2"/>
-            </svg>
+            <img src="logo-flat.png" class="hero-image" alt="Invest In Energy" style="background: transparent; box-shadow: none; border: none; padding: 0; max-width: 240px;">
 
             <p style="color: var(--text-gray); margin-bottom: 35px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Login to your green portfolio</p>
         </div>
@@ -657,17 +656,7 @@
         <div class="text-center">
             <h1 class="logo-title" style="cursor: default;">Invest In Energy</h1>
             
-            <svg viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg" class="hero-image">
-                <rect width="240" height="120" rx="10" fill="#040d06"/>
-                <path d="M40,60 L90,20 L150,20 L200,60 L150,100 L90,100 Z" fill="none" stroke="#00FF88" stroke-width="2" opacity="0.3"/>
-                <path d="M60,60 L100,35 L140,35 L180,60 L140,85 L100,85 Z" fill="#06140a" stroke="#00cc6a" stroke-width="2"/>
-                <circle cx="120" cy="60" r="15" fill="#00FF88" filter="drop-shadow(0 0 10px #00FF88)"/>
-                <circle cx="60" cy="60" r="5" fill="#00cc6a"/>
-                <circle cx="180" cy="60" r="5" fill="#00cc6a"/>
-                <circle cx="100" cy="35" r="4" fill="#a8c2b3"/>
-                <circle cx="140" cy="85" r="4" fill="#a8c2b3"/>
-                <path d="M120,45 L120,20 M120,75 L120,100 M105,60 L90,60 M135,60 L150,60" stroke="#00FF88" stroke-width="2"/>
-            </svg>
+            <img src="logo-flat.png" class="hero-image" alt="Invest In Energy" style="background: transparent; box-shadow: none; border: none; padding: 0; max-width: 240px;">
 
             <p style="color: var(--text-gray); margin-bottom: 25px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Create new account</p>
         </div>
@@ -995,7 +984,7 @@
         <p class="text-center text-gray" style="margin-bottom: 25px; font-weight: 600;">Invest in charging stations and earn daily.</p>
         
         <div id="promoBanner">
-            <h2>⚡ After celebrating 3 days of launch, take advantage now -50% ⚡</h2>
+            <h2>⚡  After celebrating 3 days of launch, take advantage now -50% ⚡</h2>
             <div id="promoCountdown">00ч 00м 00с</div>
         </div>
 
@@ -1402,40 +1391,9 @@
             if(!container) return;
             container.innerHTML = '';
 
-            // CHANGED: SVG with the requested car and wreath wreath image, original colors
+            // CHANGED: Added the circular image logo to the top right of each package
             const packageGraphic = `
-                <svg viewBox="0 0 100 100" style="position: absolute; top: -10px; right: -10px; width: 100px; height: 100px; opacity: 0.8; pointer-events: none;" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="48" fill="none" stroke="#FFFFFF" stroke-width="2"/>
-                    <circle cx="50" cy="50" r="45" fill="none" stroke="#00FF88" stroke-width="1.5"/>
-                    <path d="M50 15 A35 35 0 0 1 85 50 M50 15 A35 35 0 0 0 15 50" fill="none" stroke="#00FF88" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M15 50 A35 35 0 0 0 50 85 M85 50 A35 35 0 0 1 50 85" fill="none" stroke="#00cc6a" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M50 8 L55 20 A30 30 0 0 1 78 40 M78 40 A30 30 0 0 1 78 60" fill="none" stroke="#00FF88" stroke-width="1"/>
-                    <path d="M50 8 L45 20 A30 30 0 0 0 22 40 M22 40 A30 30 0 0 0 22 60" fill="none" stroke="#00FF88" stroke-width="1"/>
-                    <path d="M78 60 A30 30 0 0 1 55 80 M22 60 A30 30 0 0 0 45 80" fill="none" stroke="#00FF88" stroke-width="1"/>
-                    <path d="M15 50 C 5 40, 20 30, 25 35 S 10 60, 15 50" fill="#00cc6a"/>
-                    <path d="M25 35 C 20 25, 35 15, 40 20 S 30 45, 25 35" fill="#00FF88"/>
-                    <path d="M40 20 C 35 10, 50 10, 55 15 S 45 30, 40 20" fill="#00FF88"/>
-                    <path d="M55 15 C 60 10, 75 10, 80 15 S 65 25, 55 15" fill="#00FF88"/>
-                    <path d="M80 15 C 85 20, 95 35, 90 40 S 75 25, 80 15" fill="#00FF88"/>
-                    <path d="M90 40 C 95 45, 95 60, 90 65 S 80 50, 90 40" fill="#00FF88"/>
-                    <path d="M90 65 C 85 75, 75 85, 70 80 S 80 60, 90 65" fill="#00cc6a"/>
-                    <path d="M70 80 C 65 90, 50 95, 45 90 S 60 75, 70 80" fill="#00FF88"/>
-                    <path d="M45 90 C 40 95, 25 95, 20 90 S 35 75, 45 90" fill="#00FF88"/>
-                    <path d="M20 90 C 15 85, 5 70, 10 65 S 25 80, 20 90" fill="#00FF88"/>
-                    <path d="M10 65 C 5 60, 5 45, 10 40 S 15 55, 10 65" fill="#00FF88"/>
-                    <path d="M28 45 H38 A2 2 0 0 1 40 47 V58 A2 2 0 0 1 38 60 H28" fill="white"/>
-                    <path d="M40 50 H55" stroke="white" stroke-width="1"/>
-                    <path d="M55 45 H65 A2 2 0 0 1 67 47 V58 A2 2 0 0 1 65 60 H55" fill="white"/>
-                    <path d="M25 50 V60 H70 V50 Z" fill="white"/>
-                    <rect x="28" y="55" width="4" height="2" rx="0.5" fill="#030a05"/>
-                    <rect x="63" y="55" width="4" height="2" rx="0.5" fill="#030a05"/>
-                    <path d="M67 50 A3 3 0 0 1 70 53 V57 A3 3 0 0 1 67 60" fill="white"/>
-                    <path d="M28 50 H20" stroke="white" stroke-width="1"/>
-                    <path d="M28 60 H20" stroke="white" stroke-width="1"/>
-                    <path d="M20 50 A3 3 0 0 0 17 53 V57 A3 3 0 0 0 20 60" fill="white"/>
-                    <circle cx="33" cy="56" r="3" fill="#030a05"/>
-                    <circle cx="60" cy="56" r="3" fill="#030a05"/>
-                </svg>
+                <img src="logo-circle.png" style="position: absolute; top: 15px; right: 15px; width: 65px; height: 65px; border-radius: 50%; pointer-events: none; box-shadow: 0 5px 15px rgba(0,255,136,0.3); border: 2px solid rgba(0,255,136,0.5);" alt="Eco Logo">
             `;
 
             energyPackages.forEach(pkg => {
