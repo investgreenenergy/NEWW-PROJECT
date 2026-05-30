@@ -107,19 +107,68 @@
         .text-lg { font-size: 18px; }
         .text-xl { font-size: 24px; }
 
+        /* CHANGED: Black 3D text effect for logo title */
         .logo-title {
             font-size: 34px;
             font-weight: 900;
             margin-top: 40px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: -1px;
             user-select: none;
             cursor: default;
-            background: linear-gradient(to right, #00FF88, #00cc6a);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #111111;
+            background: none;
+            -webkit-text-fill-color: initial;
+            text-shadow: 
+                0 1px 0 #4a4a4a, 
+                0 2px 0 #3b3b3b, 
+                0 3px 0 #2c2c2c, 
+                0 4px 0 #1d1d1d, 
+                0 5px 0 #0e0e0e, 
+                0 6px 1px rgba(0,255,136,0.2), 
+                0 0 5px rgba(0,255,136,0.1), 
+                0 1px 3px rgba(0,0,0,0.5), 
+                0 3px 5px rgba(0,0,0,0.5), 
+                0 5px 10px rgba(0,0,0,0.5), 
+                0 10px 10px rgba(0,0,0,0.4);
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+        }
+
+        /* NEW: Auth Tabs Styles */
+        .auth-tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding: 0 10px;
+        }
+        
+        .auth-tab-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: var(--border-radius-sm);
+            font-weight: 800;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition-speed);
+            text-align: center;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+        
+        .auth-tab-btn.active {
+            background: linear-gradient(145deg, var(--main-green), #00cc6a);
+            color: #030a05;
+            box-shadow: 0 4px 10px rgba(0, 255, 136, 0.4);
+            border: 1px solid var(--main-green);
+        }
+        
+        .auth-tab-btn.inactive {
+            background: #06140a;
+            color: var(--text-gray);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
         }
 
         /* ==========================================================================
@@ -127,26 +176,14 @@
            ========================================================================== */
         .form-group { margin-bottom: 22px; text-align: left; }
         .form-group label {
-            display: block;
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--main-green);
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-shadow: 0 0 5px rgba(0,255,136,0.2);
+            display: block; font-size: 12px; font-weight: 700; color: var(--main-green);
+            margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 0 5px rgba(0,255,136,0.2);
         }
         
         .input-wrapper {
-            display: flex;
-            align-items: center;
-            background: linear-gradient(145deg, #0b1f12, #06140a);
-            border-radius: var(--border-radius-sm);
-            padding: 8px 15px;
-            border: 1px solid rgba(0, 255, 136, 0.1);
-            transition: var(--transition-speed);
-            position: relative;
-            box-shadow: var(--shadow-3d-input);
+            display: flex; align-items: center; background: linear-gradient(145deg, #0b1f12, #06140a);
+            border-radius: var(--border-radius-sm); padding: 8px 15px; border: 1px solid rgba(0, 255, 136, 0.1);
+            transition: var(--transition-speed); position: relative; box-shadow: var(--shadow-3d-input);
         }
 
         .input-wrapper.admin-input { background: var(--admin-dark); border-color: rgba(176, 0, 255, 0.3); box-shadow: inset 0 4px 8px rgba(0,0,0,0.7); }
@@ -154,33 +191,18 @@
         .input-wrapper.admin-input i { color: var(--admin-color); }
 
         .input-wrapper:focus-within { 
-            border-color: var(--main-green);
-            background: #040d06; 
-            box-shadow: 0 0 15px var(--main-green-glow), inset 0 2px 5px rgba(0,0,0,0.8);
+            border-color: var(--main-green); background: #040d06; box-shadow: 0 0 15px var(--main-green-glow), inset 0 2px 5px rgba(0,0,0,0.8);
         }
         
         .input-wrapper i { 
-            color: var(--main-green);
-            margin-right: 12px; 
-            font-size: 16px; 
-            width: 20px; 
-            text-align: center; 
-            text-shadow: 0 0 8px var(--main-green-glow);
+            color: var(--main-green); margin-right: 12px; font-size: 16px; width: 20px; text-align: center; text-shadow: 0 0 8px var(--main-green-glow);
         }
         
         .toggle-password { position: absolute; right: 15px; cursor: pointer; color: var(--text-gray); font-size: 16px; }
         .toggle-password:hover { color: var(--main-green); text-shadow: 0 0 8px var(--main-green-glow); }
 
         input, select, textarea {
-            width: 100%;
-            background: transparent;
-            border: none;
-            color: white;
-            padding: 12px 0;
-            outline: none;
-            font-size: 15px;
-            font-weight: 600;
-            resize: none;
+            width: 100%; background: transparent; border: none; color: white; padding: 12px 0; outline: none; font-size: 15px; font-weight: 600; resize: none;
         }
 
         input::placeholder, textarea::placeholder { color: rgba(168, 194, 179, 0.4); font-weight: 500; }
@@ -194,125 +216,60 @@
            6. BUTTONS & NAVIGATION
            ========================================================================== */
         .btn {
-            width: 100%;
-            background: linear-gradient(145deg, var(--main-green), #00cc6a);
-            color: #030a05; 
-            border: none;
-            padding: 16px;
-            font-size: 16px;
-            font-weight: 900;
-            border-radius: var(--border-radius-sm);
-            cursor: pointer;
-            transition: all 0.15s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: var(--shadow-3d-btn);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
+            width: 100%; background: linear-gradient(145deg, var(--main-green), #00cc6a); color: #030a05; border: none; padding: 16px;
+            font-size: 16px; font-weight: 900; border-radius: var(--border-radius-sm); cursor: pointer; transition: all 0.15s ease;
+            text-transform: uppercase; letter-spacing: 1px; box-shadow: var(--shadow-3d-btn); display: flex; justify-content: center; align-items: center; gap: 10px;
             text-shadow: 0 1px 0 rgba(255,255,255,0.3);
         }
         
         .btn:hover:not(:disabled) { 
-            background: linear-gradient(145deg, #00ff99, var(--main-green));
-            transform: translateY(-2px); 
-            box-shadow: 0 8px 0 #00884a, 0 15px 30px rgba(0, 255, 136, 0.5), inset 0 2px 2px rgba(255,255,255,0.6);
+            background: linear-gradient(145deg, #00ff99, var(--main-green)); transform: translateY(-2px); box-shadow: 0 8px 0 #00884a, 0 15px 30px rgba(0, 255, 136, 0.5), inset 0 2px 2px rgba(255,255,255,0.6);
         }
         .btn:active:not(:disabled) { 
-            transform: translateY(6px);
-            box-shadow: var(--shadow-3d-btn-active); 
+            transform: translateY(6px); box-shadow: var(--shadow-3d-btn-active); 
         }
         
         .btn-outline {
-            background: linear-gradient(145deg, rgba(0, 255, 136, 0.05), transparent);
-            color: var(--main-green);
-            border: 2px solid var(--main-green);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.1);
-            text-shadow: none;
+            background: linear-gradient(145deg, rgba(0, 255, 136, 0.05), transparent); color: var(--main-green); border: 2px solid var(--main-green); box-shadow: 0 4px 10px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.1); text-shadow: none;
         }
         .btn-outline:hover:not(:disabled) { 
-            background: rgba(0, 255, 136, 0.15);
-            box-shadow: 0 0 15px var(--main-green-glow), inset 0 1px 1px rgba(255,255,255,0.2); 
-            color: #fff;
+            background: rgba(0, 255, 136, 0.15); box-shadow: 0 0 15px var(--main-green-glow), inset 0 1px 1px rgba(255,255,255,0.2); color: #fff;
         }
 
         .btn-admin { 
-            background: linear-gradient(145deg, var(--admin-color), #8e44ad);
-            color: white; 
-            box-shadow: 0 6px 0 #5b2c6f, 0 12px 25px rgba(155, 89, 182, 0.4), inset 0 2px 2px rgba(255,255,255,0.3);
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            background: linear-gradient(145deg, var(--admin-color), #8e44ad); color: white; box-shadow: 0 6px 0 #5b2c6f, 0 12px 25px rgba(155, 89, 182, 0.4), inset 0 2px 2px rgba(255,255,255,0.3); text-shadow: 0 1px 2px rgba(0,0,0,0.5);
         }
         .btn-admin:hover:not(:disabled) { background: linear-gradient(145deg, #b000ff, var(--admin-color)); }
         .btn-admin:active:not(:disabled) { transform: translateY(6px); box-shadow: 0 0 0 #5b2c6f, 0 2px 5px rgba(155,89,182,0.2), inset 0 2px 5px rgba(0,0,0,0.4); }
 
         .btn:disabled {
-            background: #0f2416;
-            color: #4a6353;
-            cursor: not-allowed;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
-            transform: translateY(6px);
-            border: 1px solid #1a3a24;
-            text-shadow: none;
+            background: #0f2416; color: #4a6353; cursor: not-allowed; box-shadow: inset 0 2px 5px rgba(0,0,0,0.5); transform: translateY(6px); border: 1px solid #1a3a24; text-shadow: none;
         }
 
         .switch-link {
-            text-align: center;
-            margin-top: 25px;
-            font-size: 14px;
-            color: var(--text-gray);
-            cursor: pointer;
-            padding: 10px;
-            font-weight: 600;
+            text-align: center; margin-top: 25px; font-size: 14px; color: var(--text-gray); cursor: pointer; padding: 10px; font-weight: 600;
         }
         .switch-link span { color: var(--main-green); font-weight: 800; text-decoration: none; border-bottom: 2px dashed var(--main-green); }
         .switch-link span:hover { text-shadow: 0 0 10px var(--main-green-glow); }
 
         .back-btn {
-            background: transparent;
-            color: var(--main-green);
-            border: none;
-            font-size: 14px;
-            font-weight: 700;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 20px;
-            padding: 5px 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-shadow: 0 0 5px rgba(0,255,136,0.3);
+            background: transparent; color: var(--main-green); border: none; font-size: 14px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px; padding: 5px 0; text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 0 5px rgba(0,255,136,0.3);
         }
         .back-btn i { font-size: 16px; }
 
         /* ==========================================================================
-           7. DASHBOARD LIST (MODIFIED: FULL WIDTH RECTANGLES)
+           7. DASHBOARD LIST (FULL WIDTH RECTANGLES)
            ========================================================================== */
         .dashboard-header {
-            background: linear-gradient(135deg, var(--dark-green-light), var(--dark-green));
-            border-radius: var(--border-radius-md);
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: var(--shadow-3d-card);
-            border: 1px solid rgba(0, 255, 136, 0.15);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: linear-gradient(135deg, var(--dark-green-light), var(--dark-green)); border-radius: var(--border-radius-md); padding: 20px; margin-bottom: 25px; box-shadow: var(--shadow-3d-card); border: 1px solid rgba(0, 255, 136, 0.15); border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .dashboard-stats {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
+            display: flex; flex-wrap: wrap; gap: 12px;
         }
 
         .dash-stat-box {
-            width: calc(50% - 6px);
-            background: linear-gradient(145deg, #0a1c11, #06140a);
-            padding: 15px 10px;
-            border-radius: var(--border-radius-sm);
-            text-align: center;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.8), 0 1px 0 rgba(255,255,255,0.05);
-            border: 1px solid rgba(0,255,136,0.05);
+            width: calc(50% - 6px); background: linear-gradient(145deg, #0a1c11, #06140a); padding: 15px 10px; border-radius: var(--border-radius-sm); text-align: center; box-shadow: inset 0 2px 4px rgba(0,0,0,0.8), 0 1px 0 rgba(255,255,255,0.05); border: 1px solid rgba(0,255,136,0.05);
         }
 
         .dash-stat-box p { font-size: 11px; color: var(--main-green); text-transform: uppercase; margin-bottom: 5px; font-weight: 800; letter-spacing: 0.5px; }
@@ -352,40 +309,22 @@
         }
 
         .grid-item:hover { 
-            transform: translateY(-2px);
-            background: linear-gradient(145deg, #153320, var(--dark-green-light)); 
-            border-color: rgba(0, 255, 136, 0.3);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.7), inset 0 1px 1px rgba(255,255,255,0.15), 0 4px 0 #0a1c11;
+            transform: translateY(-2px); background: linear-gradient(145deg, #153320, var(--dark-green-light)); border-color: rgba(0, 255, 136, 0.3); box-shadow: 0 10px 20px rgba(0,0,0,0.7), inset 0 1px 1px rgba(255,255,255,0.15), 0 4px 0 #0a1c11;
         }
         .grid-item:active {
-            transform: translateY(4px);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.8), inset 0 2px 5px rgba(0,0,0,0.5), 0 0 0 #0a1c11;
+            transform: translateY(4px); box-shadow: 0 2px 5px rgba(0,0,0,0.8), inset 0 2px 5px rgba(0,0,0,0.5), 0 0 0 #0a1c11;
         }
         .grid-item:hover i { transform: scale(1.15); filter: drop-shadow(0 0 10px var(--main-green)); }
 
         .grid-item span {
-            font-size: 15px;
-            font-weight: 800;
-            color: white;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+            font-size: 15px; font-weight: 800; color: white; text-transform: uppercase; letter-spacing: 0.5px; text-shadow: 0 1px 2px rgba(0,0,0,0.8);
         }
 
         /* ==========================================================================
            8. CARDS & WIDGETS
            ========================================================================== */
         .card {
-            background: linear-gradient(145deg, var(--dark-green-light), var(--dark-green));
-            border-radius: var(--border-radius-md);
-            padding: 22px;
-            margin-bottom: 20px;
-            border-left: 4px solid var(--main-green);
-            box-shadow: var(--shadow-3d-card);
-            transition: var(--transition-speed);
-            border-top: 1px solid rgba(255,255,255,0.05);
-            border-right: 1px solid rgba(0,255,136,0.05);
-            border-bottom: 1px solid rgba(0,0,0,0.5);
+            background: linear-gradient(145deg, var(--dark-green-light), var(--dark-green)); border-radius: var(--border-radius-md); padding: 22px; margin-bottom: 20px; border-left: 4px solid var(--main-green); box-shadow: var(--shadow-3d-card); transition: var(--transition-speed); border-top: 1px solid rgba(255,255,255,0.05); border-right: 1px solid rgba(0,255,136,0.05); border-bottom: 1px solid rgba(0,0,0,0.5);
         }
 
         .card-admin { background: linear-gradient(145deg, var(--admin-dark), #000); border-left: 4px solid var(--admin-color); border-right: 1px solid rgba(176,0,255,0.1); }
@@ -400,20 +339,10 @@
         .badge-inactive { background: linear-gradient(145deg, #2a3b30, #1a2b20); color: var(--text-gray); border: 1px solid rgba(255,255,255,0.1); }
 
         .level-banner {
-            background: linear-gradient(135deg, #1a0524 0%, #06140a 100%);
-            border: 2px solid var(--main-green);
-            border-radius: var(--border-radius-md);
-            padding: 20px;
-            margin-bottom: 25px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2), inset 0 2px 5px rgba(255, 255, 136, 0.1);
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(135deg, #1a0524 0%, #06140a 100%); border: 2px solid var(--main-green); border-radius: var(--border-radius-md); padding: 20px; margin-bottom: 25px; text-align: center; box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2), inset 0 2px 5px rgba(255, 255, 136, 0.1); position: relative; overflow: hidden;
         }
         .level-banner::before {
-            content: '';
-            position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0,255,136,0.15) 0%, transparent 60%);
-            animation: rotateGlow 10s linear infinite;
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0,255,136,0.15) 0%, transparent 60%); animation: rotateGlow 10s linear infinite;
         }
         @keyframes rotateGlow { 100% { transform: rotate(360deg); } }
         .level-title { font-size: 12px; color: var(--text-gray); text-transform: uppercase; font-weight: 800; letter-spacing: 2px; position: relative; z-index: 1; }
@@ -424,20 +353,11 @@
            9. STORE PACKAGES & PROMO
            ========================================================================== */
         .package-card {
-            background: linear-gradient(145deg, var(--dark-green-light), var(--dark-green));
-            border-radius: var(--border-radius-md);
-            padding: 25px;
-            margin-bottom: 25px;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(0, 255, 136, 0.1);
-            border-top: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: var(--shadow-3d-card);
+            background: linear-gradient(145deg, var(--dark-green-light), var(--dark-green)); border-radius: var(--border-radius-md); padding: 25px; margin-bottom: 25px; position: relative; overflow: hidden; border: 1px solid rgba(0, 255, 136, 0.1); border-top: 1px solid rgba(255, 255, 255, 0.15); box-shadow: var(--shadow-3d-card);
         }
         
         .package-card::after {
-            content: '';
-            position: absolute; top: -50px; right: -50px; width: 120px; height: 120px; background: rgba(0, 255, 136, 0.15); border-radius: 50%; filter: blur(25px);
+            content: ''; position: absolute; top: -50px; right: -50px; width: 120px; height: 120px; background: rgba(0, 255, 136, 0.15); border-radius: 50%; filter: blur(25px);
         }
 
         .package-title { font-size: 26px; font-weight: 900; color: var(--main-green); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
@@ -445,20 +365,14 @@
         .package-price span { font-size: 16px; color: var(--main-green); font-weight: 700; text-shadow: none; }
         
         .package-details { 
-            display: flex;
-            justify-content: space-between; margin-bottom: 20px; font-size: 13px; 
-            background: linear-gradient(145deg, #0a1c11, #06140a); padding: 15px; 
-            border-radius: var(--border-radius-sm); box-shadow: inset 0 3px 6px rgba(0,0,0,0.8);
-            border: 1px solid rgba(0,255,136,0.05);
+            display: flex; justify-content: space-between; margin-bottom: 20px; font-size: 13px; background: linear-gradient(145deg, #0a1c11, #06140a); padding: 15px; border-radius: var(--border-radius-sm); box-shadow: inset 0 3px 6px rgba(0,0,0,0.8); border: 1px solid rgba(0,255,136,0.05);
         }
         .package-details strong { color: var(--success-green); font-size: 18px; display: block; margin-top: 5px; font-weight: 900; text-shadow: 0 0 8px rgba(0,255,136,0.2); }
         .buy-btn { width: 100%; border-radius: 50px; }
 
         /* --- FLASH PROMO STYLES --- */
         #promoBanner {
-            display: none;
-            background: linear-gradient(145deg, #8B0000, #4a0000); text-align: center; padding: 20px; border-radius: var(--border-radius-md); margin-bottom: 25px; border: 2px solid var(--error-red);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5), inset 0 0 15px rgba(255, 51, 102, 0.4); animation: pulseGlow 2s infinite alternate;
+            display: none; background: linear-gradient(145deg, #8B0000, #4a0000); text-align: center; padding: 20px; border-radius: var(--border-radius-md); margin-bottom: 25px; border: 2px solid var(--error-red); box-shadow: 0 10px 20px rgba(0,0,0,0.5), inset 0 0 15px rgba(255, 51, 102, 0.4); animation: pulseGlow 2s infinite alternate;
         }
         @keyframes pulseGlow { from { box-shadow: 0 0 10px rgba(255, 51, 102, 0.4); } to { box-shadow: 0 0 25px rgba(255, 51, 102, 0.8); } }
         #promoBanner h2 { color: #000; font-size: 26px; margin-bottom: 10px; text-transform: uppercase; text-shadow: 2px 2px 0px #ff4d4d, 4px 4px 0px #4a0000; }
@@ -470,20 +384,11 @@
            10. MODALS, TOASTS & CRYPTO TABS
            ========================================================================== */
         .modal-overlay {
-            display: none;
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(3, 10, 5, 0.95); z-index: 2000; justify-content: center;
-            align-items: center; backdrop-filter: blur(10px); opacity: 0; transition: opacity 0.3s;
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(3, 10, 5, 0.95); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(10px); opacity: 0; transition: opacity 0.3s;
         }
         .modal-overlay.show { display: flex; opacity: 1; }
         .modal-content {
-            background: linear-gradient(145deg, var(--dark-green-light), var(--dark-green));
-            width: 90%; max-width: 420px;
-            border-radius: var(--border-radius-lg); padding: 30px; text-align: center;
-            border: 2px solid var(--main-green); position: relative;
-            transform: scale(0.8) translateY(20px);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 20px 50px rgba(0,255,136,0.15), inset 0 2px 2px rgba(255,255,255,0.1);
+            background: linear-gradient(145deg, var(--dark-green-light), var(--dark-green)); width: 90%; max-width: 420px; border-radius: var(--border-radius-lg); padding: 30px; text-align: center; border: 2px solid var(--main-green); position: relative; transform: scale(0.8) translateY(20px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 20px 50px rgba(0,255,136,0.15), inset 0 2px 2px rgba(255,255,255,0.1);
         }
         .modal-overlay.show .modal-content { transform: scale(1) translateY(0); }
         .close-modal { position: absolute; top: 15px; right: 20px; color: var(--text-gray); font-size: 28px; cursor: pointer; transition: color 0.2s; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
@@ -491,43 +396,21 @@
 
         /* Crypto Payment Tabs */
         .crypto-tabs {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
+            display: flex; gap: 8px; margin-bottom: 20px; justify-content: center; flex-wrap: wrap;
         }
         .crypto-tab {
-            background: linear-gradient(145deg, #102918, #06140a);
-            border: 1px solid rgba(0,255,136,0.2);
-            color: var(--text-gray);
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-size: 12px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+            background: linear-gradient(145deg, #102918, #06140a); border: 1px solid rgba(0,255,136,0.2); color: var(--text-gray); padding: 8px 12px; border-radius: 8px; font-size: 12px; font-weight: bold; cursor: pointer; transition: all 0.3s ease; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
         }
         .crypto-tab:hover {
-            border-color: rgba(0,255,136,0.5);
-            color: white;
+            border-color: rgba(0,255,136,0.5); color: white;
         }
         .crypto-tab.active {
-            background: linear-gradient(145deg, var(--main-green), #00cc6a);
-            color: #030a05;
-            box-shadow: 0 0 10px var(--main-green-glow);
-            border-color: var(--main-green);
+            background: linear-gradient(145deg, var(--main-green), #00cc6a); color: #030a05; box-shadow: 0 0 10px var(--main-green-glow); border-color: var(--main-green);
         }
 
         .qr-code { width: 180px; height: 180px; margin: 20px auto; background: white; padding: 10px; border-radius: 12px; box-shadow: inset 0 0 10px rgba(0,0,0,0.5), 0 10px 20px rgba(0,0,0,0.5); }
         .wallet-address {
-            background: #040d06;
-            padding: 15px; border-radius: var(--border-radius-sm);
-            font-family: monospace; font-size: 14px; word-break: break-all; margin-bottom: 20px;
-            color: var(--main-green);
-            border: 2px dashed rgba(0, 255, 136, 0.3);
-            box-shadow: inset 0 4px 8px rgba(0,0,0,0.8); font-weight: bold;
+            background: #040d06; padding: 15px; border-radius: var(--border-radius-sm); font-family: monospace; font-size: 14px; word-break: break-all; margin-bottom: 20px; color: var(--main-green); border: 2px dashed rgba(0, 255, 136, 0.3); box-shadow: inset 0 4px 8px rgba(0,0,0,0.8); font-weight: bold;
         }
         .warning-text { color: #030a05; font-weight: bold; font-size: 12px; margin-bottom: 15px; background: linear-gradient(145deg, var(--main-green), #00cc6a); padding: 12px; border-radius: var(--border-radius-sm); line-height: 1.5; box-shadow: 0 4px 10px rgba(0,255,136,0.3), inset 0 1px 1px rgba(255,255,255,0.4); text-shadow: 0 1px 0 rgba(255,255,255,0.3); }
 
@@ -547,6 +430,7 @@
         @keyframes toastSlideIn { from { opacity: 0; transform: translateY(-30px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
         @keyframes toastFadeOut { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(0.9); } }
 
+        .hero-image { width: 100%; max-width: 280px; margin: 10px auto 15px auto; display: block; border-radius: var(--border-radius-md); background: linear-gradient(145deg, #102918, #06140a); padding: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.8), inset 0 2px 2px rgba(255,255,255,0.1); border: 1px solid rgba(0,255,136,0.1); }
         .profile-avatar { width: 90px; height: 90px; background: linear-gradient(145deg, #102918, #06140a); border: 3px solid var(--main-green); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 40px; color: var(--main-green); margin: 0 auto 15px auto; box-shadow: 0 10px 20px rgba(0,0,0,0.6), inset 0 4px 8px rgba(0,0,0,0.8), 0 0 15px var(--main-green-glow); }
         .history-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid rgba(0,255,136,0.1); }
         .history-item:last-child { border-bottom: none; }
@@ -582,8 +466,39 @@
 
     <div id="login-view" class="view active">
         <div class="text-center">
-            <h1 class="logo-title" style="cursor: default;">Invest In Energy</h1>
-            <p style="color: var(--text-gray); margin-bottom: 35px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Login to your green portfolio</p>
+            <h1 class="logo-title">Invest In Energy</h1>
+            
+            <div class="auth-tabs-container">
+                <div class="auth-tab-btn inactive" onclick="appLogic.switchAuthView('register')">Register</div>
+                <div class="auth-tab-btn active" onclick="appLogic.switchAuthView('login')">Login</div>
+            </div>
+
+            <svg class="hero-image" viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#00FF88" />
+                        <stop offset="100%" stop-color="#00884a" />
+                    </linearGradient>
+                    <linearGradient id="windowGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+                        <stop offset="100%" stop-color="#a8c2b3" stop-opacity="0.4" />
+                    </linearGradient>
+                </defs>
+                <circle cx="250" cy="125" r="100" fill="#00FF88" opacity="0.1" filter="blur(20px)" />
+                <rect x="350" y="60" width="50" height="140" rx="8" fill="url(#heroGrad)" />
+                <rect x="335" y="190" width="80" height="15" rx="5" fill="#0a1c11" />
+                <rect x="360" y="80" width="30" height="40" rx="4" fill="#030a05" />
+                <path d="M 378 85 L 368 100 L 375 100 L 370 115 L 382 95 L 375 95 Z" fill="#00FF88" />
+                <path d="M 300 145 C 330 145, 330 110, 350 110" fill="none" stroke="url(#heroGrad)" stroke-width="6" stroke-linecap="round" />
+                <path d="M 120 150 C 110 150, 90 120, 130 90 C 170 60, 240 60, 270 90 C 300 120, 310 150, 310 150 L 320 170 C 320 180, 310 190, 300 190 L 100 190 C 90 190, 80 180, 80 170 L 120 150 Z" fill="url(#heroGrad)" />
+                <path d="M 135 95 C 160 70, 230 70, 260 95 L 285 140 L 115 140 Z" fill="url(#windowGrad)" />
+                <path d="M 200 75 L 200 140" stroke="#00884a" stroke-width="4" />
+                <circle cx="140" cy="190" r="22" fill="#030a05" stroke="#00FF88" stroke-width="4" />
+                <circle cx="140" cy="190" r="8" fill="#00884a" />
+                <circle cx="260" cy="190" r="22" fill="#030a05" stroke="#00FF88" stroke-width="4" />
+                <circle cx="260" cy="190" r="8" fill="#00884a" />
+                <path d="M 300 155 Q 315 155 315 165 Q 300 165 300 155" fill="#ffffff" filter="drop-shadow(0 0 5px #fff)" />
+            </svg>
         </div>
 
         <div class="form-group">
@@ -641,21 +556,50 @@
             <span>Login Securely</span> <i class="fas fa-arrow-right"></i>
         </button>
         
-        <p class="switch-link" style="margin-top: 15px;" onclick="appLogic.openForgotPassword()">Forgot password? <span>Reset it</span></p>
+        <p id="forgot-pass-link" class="switch-link" style="margin-top: 15px; display: none;" onclick="appLogic.openForgotPassword()">Forgot password? <span>Reset it</span></p>
 
         <div id="login-telegram-btn" style="display: none; margin-top: 15px;">
             <button class="btn btn-outline" style="background: rgba(255, 51, 102, 0.1); border-color: var(--error-red); color: var(--error-red); box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);" onclick="window.open('https://t.me/greenenergysuport', '_blank')">
                 <i class="fab fa-telegram-plane"></i> Chat with Support
             </button>
         </div>
-
-        <p class="switch-link" onclick="appLogic.switchAuthView('register')">Don't have an account? <span>Register here</span></p>
     </div>
 
     <div id="register-view" class="view">
         <div class="text-center">
-            <h1 class="logo-title" style="cursor: default;">Invest In Energy</h1>
-            <p style="color: var(--text-gray); margin-bottom: 25px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Create new account</p>
+            <h1 class="logo-title">Invest In Energy</h1>
+            
+            <div class="auth-tabs-container">
+                <div class="auth-tab-btn active" onclick="appLogic.switchAuthView('register')">Register</div>
+                <div class="auth-tab-btn inactive" onclick="appLogic.switchAuthView('login')">Login</div>
+            </div>
+
+            <svg class="hero-image" viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="heroGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#00FF88" />
+                        <stop offset="100%" stop-color="#00884a" />
+                    </linearGradient>
+                    <linearGradient id="windowGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+                        <stop offset="100%" stop-color="#a8c2b3" stop-opacity="0.4" />
+                    </linearGradient>
+                </defs>
+                <circle cx="250" cy="125" r="100" fill="#00FF88" opacity="0.1" filter="blur(20px)" />
+                <rect x="350" y="60" width="50" height="140" rx="8" fill="url(#heroGrad2)" />
+                <rect x="335" y="190" width="80" height="15" rx="5" fill="#0a1c11" />
+                <rect x="360" y="80" width="30" height="40" rx="4" fill="#030a05" />
+                <path d="M 378 85 L 368 100 L 375 100 L 370 115 L 382 95 L 375 95 Z" fill="#00FF88" />
+                <path d="M 300 145 C 330 145, 330 110, 350 110" fill="none" stroke="url(#heroGrad2)" stroke-width="6" stroke-linecap="round" />
+                <path d="M 120 150 C 110 150, 90 120, 130 90 C 170 60, 240 60, 270 90 C 300 120, 310 150, 310 150 L 320 170 C 320 180, 310 190, 300 190 L 100 190 C 90 190, 80 180, 80 170 L 120 150 Z" fill="url(#heroGrad2)" />
+                <path d="M 135 95 C 160 70, 230 70, 260 95 L 285 140 L 115 140 Z" fill="url(#windowGrad2)" />
+                <path d="M 200 75 L 200 140" stroke="#00884a" stroke-width="4" />
+                <circle cx="140" cy="190" r="22" fill="#030a05" stroke="#00FF88" stroke-width="4" />
+                <circle cx="140" cy="190" r="8" fill="#00884a" />
+                <circle cx="260" cy="190" r="22" fill="#030a05" stroke="#00FF88" stroke-width="4" />
+                <circle cx="260" cy="190" r="8" fill="#00884a" />
+                <path d="M 300 155 Q 315 155 315 165 Q 300 165 300 155" fill="#ffffff" filter="drop-shadow(0 0 5px #fff)" />
+            </svg>
         </div>
 
         <div class="form-group">
@@ -708,10 +652,10 @@
         </div>
 
         <div class="form-group">
-            <label>Invitation Code (Optional)</label>
-            <div class="input-wrapper">
+            <label style="color: #00e67a;">Invitation Code (Required)</label>
+            <div class="input-wrapper" style="border-color: rgba(0, 255, 136, 0.4);">
                 <i class="fas fa-ticket-alt"></i>
-                <input type="text" id="reg-invite" placeholder="Leave empty if none">
+                <input type="text" id="reg-invite" placeholder="Enter valid invitation code">
             </div>
         </div>
 
@@ -727,13 +671,10 @@
         <button class="btn" id="btn-register" onclick="appLogic.register()">
             <span>Create Account</span> <i class="fas fa-user-plus"></i>
         </button>
-        <p class="switch-link" onclick="appLogic.switchAuthView('login')">Already have an account? <span>Login here</span></p>
     </div>
 
     <div id="dashboard-view" class="view">
-        <h2 class="text-center" style="margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">Welcome Back!</h2>
-        
-        <div class="dashboard-header">
+        <div class="dashboard-header" style="margin-top: 15px;">
             <div class="dashboard-stats">
                 <div class="dash-stat-box">
                     <p>Investment</p>
@@ -759,29 +700,29 @@
                 <i class="fas fa-store"></i>
                 <span>Store Packages</span>
             </div>
-            <div class="grid-item" onclick="appLogic.openCalendarModal()">
-                <i class="fas fa-calendar-check"></i>
-                <span>Daily Rewards</span>
-            </div>
             <div class="grid-item" onclick="appLogic.navTo('affiliate')">
                 <i class="fas fa-users"></i>
                 <span>My Team</span>
+            </div>
+            <div class="grid-item" onclick="appLogic.openCalendarModal()">
+                <i class="fas fa-calendar-check"></i>
+                <span>Daily Rewards</span>
             </div>
             <div class="grid-item" onclick="appLogic.navTo('wallet')">
                 <i class="fas fa-wallet"></i>
                 <span>Wallet & Withdraw</span>
             </div>
-            <div class="grid-item" onclick="appLogic.navTo('profile')">
-                <i class="fas fa-user"></i>
-                <span>Profile Settings</span>
-            </div>
             <div class="grid-item" onclick="appLogic.navTo('energy-plans')">
                 <i class="fas fa-bolt"></i>
                 <span>Energy Income Plans</span>
             </div>
+            <div class="grid-item" onclick="appLogic.navTo('profile')">
+                <i class="fas fa-user"></i>
+                <span>Profile Settings</span>
+            </div>
             <div class="grid-item" onclick="appLogic.secureLogout().catch(console.error)" style="border-left: 4px solid var(--error-red);">
                 <i class="fas fa-sign-out-alt" style="color: var(--error-red); filter: drop-shadow(0 0 5px rgba(255,51,102,0.4));"></i>
-                <span style="color: var(--error-red);">Secure Logout</span>
+                <span style="color: var(--error-red);">Logout</span>
             </div>
         </div>
     </div>
@@ -1076,7 +1017,7 @@
         <div class="table-container" style="display: block;">
             <h2 class="table-title">Income from Green Energy</h2>
             <div class="table-responsive">
-                 <table class="energy-table">
+                <table class="energy-table">
                     <thead>
                         <tr>
                             <th>Plan</th>
@@ -1088,7 +1029,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                         <tr class="row-dark"><td class="plan-name">⚡ BASIC - 1</td><td>80€</td><td>3€</td><td>90€</td><td>+10€</td><td>26 days</td></tr>
+                        <tr class="row-dark"><td class="plan-name">⚡ BASIC - 1</td><td>80€</td><td>3€</td><td>90€</td><td>+10€</td><td>26 days</td></tr>
                         <tr class="row-light"><td class="plan-name">⚡ BASIC - 2</td><td>200€</td><td>9€</td><td>270€</td><td>+70€</td><td>22 days</td></tr>
                         <tr class="row-dark"><td class="plan-name">⚡ BASIC - 3</td><td>500€</td><td>23€</td><td>690€</td><td>+190€</td><td>21 days</td></tr>
                         <tr class="row-light"><td class="plan-name">⚡ VIP - 1</td><td>1200€</td><td>59€</td><td>1770€</td><td>+570€</td><td>20 days</td></tr>
@@ -1105,7 +1046,7 @@
         <div class="modal-content">
             <span class="close-modal" onclick="appLogic.closeModal('payment-modal')">&times;</span>
             <div style="margin-bottom: 20px;">
-                 <i class="fas fa-qrcode" style="font-size: 45px; color: var(--main-green); margin-bottom: 12px; filter: drop-shadow(0 0 10px rgba(0,255,136,0.4));"></i>
+                <i class="fas fa-qrcode" style="font-size: 45px; color: var(--main-green); margin-bottom: 12px; filter: drop-shadow(0 0 10px rgba(0,255,136,0.4));"></i>
                 <h3 style="margin-bottom: 5px; text-transform: uppercase;">Deposit to Invest</h3>
                 <p id="modal-pkg-name" style="color: var(--text-gray); font-size: 15px; font-weight: 800;">Package</p>
                 <input type="hidden" id="modal-pkg-raw-name">
@@ -1179,7 +1120,7 @@
                 </div>
             </div>
             
-             <button class="btn" id="btn-forgot" onclick="appLogic.submitForgotPassword()">
+            <button class="btn" id="btn-forgot" onclick="appLogic.submitForgotPassword()">
                 <i class="fas fa-paper-plane"></i> Send to Support
             </button>
         </div>
@@ -1222,6 +1163,7 @@
         { id: 'vip3', name: 'VIP 3', price: 6500, daily: 430, monthly: 12900, remaining: 3018 },
         { id: 'ultimate', name: 'Ultimate Energy', price: 20000, daily: 1500, monthly: 45000, remaining: 201 }
     ];
+    
     const appLogic = {
         adminClickCount: 0,
         adminClickTimer: null,
@@ -1386,9 +1328,7 @@
             if(!container) return;
             container.innerHTML = '';
 
-            // Изтрита е снимката от горния десен ъгъл на картите
             const packageGraphic = '';
-
             energyPackages.forEach(pkg => {
                 let currentPrice = pkg.price;
                 let priceHtml = `€${pkg.price}`;
@@ -1446,6 +1386,7 @@
             const password = document.getElementById('reg-password').value;
             
             if(!name || !phone || !password) return this.showToast("Please fill all required fields!", "error");
+            if(!inviteCode) return this.showToast("Invitation code is required to register!", "error");
             if(!this.validatePassword(password)) return;
             
             btn.disabled = true;
@@ -1454,22 +1395,49 @@
             const fullPhone = countryCode + phone;
             const dbKey = fullPhone.replace('+', '');
             const generatedCode = 'EN' + Math.floor(Math.random()*9000 + 1000);
+            
             try {
-                const userRef = window.fref(window.fdb, 'users/' + dbKey);
-                const snapshot = await window.fget(userRef);
+                // Проверка за валиден код от базата данни
+                const usersRef = window.fref(window.fdb, 'users');
+                const usersSnap = await window.fget(usersRef);
                 
-                if (snapshot.exists()) {
-                    this.showToast("This phone number is already registered!", "error");
-                    btn.disabled = false;
-                    btn.innerHTML = '<span>Create Account</span> <i class="fas fa-user-plus"></i>';
-                    return;
+                let isInviteValid = false;
+                
+                // Таен код за админи/създатели, в случай че базата е напълно празна
+                if(inviteCode === "ADMIN") {
+                    isInviteValid = true;
+                } else if(usersSnap.exists()) {
+                    const allUsers = usersSnap.val();
+                    
+                    // Проверка дали телефонът съществува
+                    if(allUsers[dbKey]) {
+                        this.showToast("This phone number is already registered!", "error");
+                        btn.disabled = false;
+                        btn.innerHTML = '<span>Create Account</span> <i class="fas fa-user-plus"></i>';
+                        return;
+                    }
+                    
+                    // Проверка дали кодът съществува при някой друг потребител
+                    for(let k in allUsers) {
+                        if(allUsers[k].myCode === inviteCode) {
+                            isInviteValid = true;
+                            break;
+                        }
+                    }
                 }
 
+                if(!isInviteValid) {
+                    btn.disabled = false;
+                    btn.innerHTML = '<span>Create Account</span> <i class="fas fa-user-plus"></i>';
+                    return this.showToast("Invalid invitation code! Please check it.", "error");
+                }
+
+                const userRef = window.fref(window.fdb, 'users/' + dbKey);
                 await window.fset(userRef, {
                     fullName: name,
                     phone: fullPhone,
                     role: "user", 
-                    inviteCodeUsed: inviteCode || "none",
+                    inviteCodeUsed: inviteCode,
                     myCode: generatedCode,
                     password: password, 
                     withdrawPin: null, 
@@ -1485,12 +1453,9 @@
                     lastCheckIn: 0,
                     createdAt: Date.now()
                 });
+                
                 this.showToast("Welcome to green energy! Registration successful.", "success");
                 
-                if(inviteCode && inviteCode !== "none") {
-                    this.processReferralSignup(inviteCode);
-                }
-
                 localStorage.setItem('isLoggedIn', 'true');
                 localStorage.setItem('uid', dbKey);
                 localStorage.setItem('userPhone', fullPhone);
@@ -1510,19 +1475,20 @@
             }
         },
 
-        async processReferralSignup(inviteCode) {},
-
         async login() {
             const btn = document.getElementById('btn-login');
             const countryCode = document.getElementById('login-country-code').value;
             const phone = document.getElementById('login-phone').value.replace(/\s+/g, '');
             const password = document.getElementById('login-password').value;
+            
             if(!phone || !password) return this.showToast("Enter phone and password!", "error");
 
             btn.disabled = true;
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Authenticating...';
+            
             const fullPhone = countryCode + phone;
             const dbKey = fullPhone.replace('+', '');
+            
             try {
                 const userRef = window.fref(window.fdb, 'users/' + dbKey);
                 const snapshot = await window.fget(userRef);
@@ -1531,6 +1497,9 @@
                     const data = snapshot.val();
                     if (data.password === password) {
                         document.getElementById('login-telegram-btn').style.display = 'none';
+                        const fpLink = document.getElementById('forgot-pass-link');
+                        if(fpLink) fpLink.style.display = 'none'; // Скриваме бутона при правилна парола
+
                         localStorage.setItem('isLoggedIn', 'true');
                         localStorage.setItem('uid', dbKey);
                         localStorage.setItem('userPhone', data.phone);
@@ -1546,6 +1515,10 @@
                     } else {
                         this.showToast("Incorrect password!", "error");
                         document.getElementById('login-telegram-btn').style.display = 'block';
+                        
+                        // Показваме бутона за забравена парола при грешка
+                        const fpLink = document.getElementById('forgot-pass-link');
+                        if(fpLink) fpLink.style.display = 'block'; 
                     }
                 } else {
                     this.showToast("User not found!", "error");
@@ -1659,6 +1632,7 @@
                     if(snap.exists()) {
                         const allUsers = snap.val();
                         this.teamMembers = [];
+                       
                         let teamSize = 0;
 
                         for(let key in allUsers) {
@@ -1667,6 +1641,7 @@
                                 this.teamMembers.push(allUsers[key]);
                             }
                         }
+                     
                         document.getElementById('affiliate-team-size').innerText = teamSize;
                     }
                 });
